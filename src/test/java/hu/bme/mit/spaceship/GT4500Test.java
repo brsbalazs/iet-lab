@@ -70,6 +70,7 @@ public class GT4500Test {
 
     // Assert
     assertTrue(result);
+    assertTrue(ship.wasPrimaryFiredLast());
   }
 
   @Test

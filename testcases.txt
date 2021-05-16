@@ -16,30 +16,38 @@ Specification of GT4500.fireTorpedo:
 
 Test cases according to the specification:
 
-1. firing single torpedo - initially a primary is fired
+1. firing single torpedo
+    - primary store count > 0
     - calling firingTorpedo() in single mode
     - checking if a primary has been fired
 
-2. firing single torpedo two times, with full stores
+2. firing single torpedo two times, with 1-1 torpedo stores
+    - all torpedo stores have at least one torpedo
     - calling firingTorpedo() in single mode
     - calling firingTorpedo() in single mode second time
-    - checking if one primary and secondary has been fired
+    - ship could only fire one-one from every type - checking if one primary and secondary has been fired successfully
 
 3. firing single torpedo two times, with primary full, secondary empty
+    - setting primary store full, and secondary store empty
     - calling firingTorpedo() in single mode
     - calling firingTorpedo() in single mode second time
     - checking if two primary has been fired successfuly
 
-3. firing a single torpedo while it reports failure, checking if it tries to fire another
-    - calling fireTorpedo
-    - checking if it failed
+4. firing a single torpedo while it reports failure, checking if it tries to fire another
+    - calling fireTorpedo in single mode
+    - TorpedoStore.fire reports failure
+    - checking if fireTorpedo failed
 
 
-4. firing all torpedos if both stores are empty
+5. firing all torpedos if both stores are empty
     - calling fireTorpedo with ALL mode
-    - checking if it failed
+    - checking if method fails
 
 
 Test cases according to the code:
 
-1. firing single torpedos two times, and checking its types
+1. firing single torpedos two times, and checking if the types were correct
+    - set 1-1 torpedo to both stores
+    - firing single torpedo once
+    - firing single torpedo once for the second time
+    - the first torpedo should be primary, the second should be secondary torpedo
